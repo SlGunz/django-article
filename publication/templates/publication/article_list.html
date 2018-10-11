@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+{% load static %}
+{% get_media_prefix as MEDIA_PREFIX %}
+
+<div class="main-content">
+    {% for article in article_list %}
+    <div class="main-content__item">
+        <section>
+            <a href="{{ article.get_absolute_url }}">
+                <h2>{{ article.title }}</h2>
+            </a>
+
+            {{ article.breif | safe }}
+
+            {% if article.preview_image %}
+            <img src="{{MEDIA_PREFIX}}{{ article.preview_image }}">
+            {% endif %}
+
+            <div class="item-footer">
+                <span element="rightside-group">
+                    {{ article.pub_date }}
+                </span>
+                <span>
+                    {{ article.creator.username }}
+                </span>
+            </div>
+        </section>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,113 @@
+/* --- COMMON TOP AND BOTTOM TOOLBAR PROPERTIES --- */
+[element="toolbar"] {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 10000;
+    box-shadow: 1px 1px 8px rgba(232,140,93,0.5);
+    overflow: hidden;
+}
+
+[element="inner-group"]{
+    width: 90%;
+    max-width: 52em;
+    margin: 0 auto;
+}
+
+[element="inner-group"]>div{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+[element="rightside-group"] {
+    float: right;
+}
+
+[element="rightside-group"]>a{
+    margin-left: 1rem;
+}
+/* --- TOP TOOLBAR --- */
+.top-toolbar {
+    height: 65px;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.top-toolbar__content>div {
+    line-height: 65px;
+}
+
+.top-toolbar.hidden{
+    top: -65px;
+}
+/*-----------------------------------------------------------*/
+.bottom-toolbar {
+    height: 44px;
+    left: 0;
+    bottom: 0;
+    -webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.bottom-toolbar__content>div {
+    line-height: 44px;
+}
+
+.bottom-toolbar.hidden{
+    bottom: -44px;
+}
+/*-----------------------------------------------------------*/
+.hidden{
+    -webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+/*-----------------------------------------------------------*/
+.main-content {
+    margin-top: 65px;
+    bottom: 44px;
+    left: 0;
+    z-index: 1;
+    padding: 1em 0 3em 0;
+}
+/*-----------------------------------------------------------*/
+.top-toolbar__logo {
+    height: 65px;
+    margin-right: 1rem;
+}
+
+.top-toolbar__logo>a{
+    font-size: 2em;
+}
+/*-----------------------------------------------------------*/
+#response__inputbox textarea {
+    margin-top: 1em;
+    max-width: 100%;
+    width: 100%;
+    height: 5rem;
+    resize: none;
+}
+
+#response__inputbox .errorlist,
+#response__inputbox .helptext,
+#response__inputbox label {
+    display: none;
+}
+
+.responses__item>.responses__item {
+    padding-left: 2em;
+    border-left: 1px dashed black;
+}
+
+.main-content__item-account label {
+    display: inline-block;
+    width: 4em;
+}
+
+.item-footer>span{
+    text-transform: uppercase;
+}

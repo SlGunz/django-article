@@ -1,0 +1,52 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+{% load static %}
+{% get_media_prefix as MEDIA_PREFIX %}
+
+<div class="main-content">
+    <div class="main-content__item-article">
+        <h1>{{ article.title }}</h1>
+
+        {% if article.preview_image %}
+        <img src="{{MEDIA_PREFIX}}{{ article.preview_image }}">
+        {% endif %}
+
+        {{ article.content | safe }}
+
+    </div>
+
+    <div class="main-content__item-responses">
+        <h2 id="response">Comments</h2>
+        <div class="responses__item">
+            {% for comment in article.comment_set.all %}
+            <h3>{{ comment.owner.username }}</h3>
+            <p>{{ comment.message }}</p>
+            <span>{{ commnet.pub_date }}</span>
+            {% endfor %}
+        </div>
+
+        {% if user.is_authenticated %}
+        <form>
+            <div id="response__inputbox">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit">             
+            </div>
+        </form>
+        {% endif %}
+
+    </div>
+
+    <div class="bottom-toolbar" element="toolbar" id="bottomToolbar">
+        <div class="bottom-toolbar__content" element="inner-group">
+            <div class="bottom-toolbar__rightside-content" element="rightside-group">
+                <a class="icomoon__response-button" href="#response">responses</a>
+                <a class="icomoon__bookmark-button" href="#">bookmark</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

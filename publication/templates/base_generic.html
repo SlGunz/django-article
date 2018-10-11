@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block title %}
+    <title>Article</title>
+    {% endblock %}
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}">
+    <script src="{% static 'js/panel.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        {% block sidebar %}
+        <div class="top-toolbar" element="toolbar" id="topToolbar">
+            <div class="top-toolbar__content" element="inner-group">
+                <div class="top-toolbar__logo">
+                    <a href="{% url 'index' %}">ARTICLE</a>
+                </div>
+                <div class="top-toolbar__leftside-content">
+                    <a href="#" class="simple-button">about</a>
+                </div>
+                <div class="top-toolbar__rightside-content" element="rightside-group">
+                    {# <a class="icomoon__search-button">search</a> #}
+                    {# <a class="icomoon__cancel_button">cancel</a> #}
+                    {% if user.is_authenticated %}
+                    <span>User: {{ user.get_username }}</span>
+                    <a href="{% url 'logout'%}?next={{request.path}}" class="simple-button">Logout</a>
+                    {% else %}
+                    <a href="{% url 'login'%}?next={{request.path}}" class="simple-button">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

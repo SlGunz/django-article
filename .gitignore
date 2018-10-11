@@ -102,3 +102,19 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
+
+#visual studio code project settings
+.vscode
+
+# ckedtior static files
+static/admin/
+static/ckeditor/
+
+# media
+/media/
