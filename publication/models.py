@@ -15,8 +15,7 @@ class Article(models.Model):
     Model represents an article.
     """
     title = models.CharField(max_length=200)
-    preview_image = models.ImageField(
-        upload_to='prewview/%Y/%m/%d/', null=True)
+    preview_image = models.URLField(max_length=200, null=True)
     content = RichTextUploadingField()
     pub_date = models.DateField(auto_now=True)
     creator = models.ForeignKey(
