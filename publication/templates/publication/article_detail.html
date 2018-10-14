@@ -2,15 +2,12 @@
 
 {% block content %}
 
-{% load static %}
-{% get_media_prefix as MEDIA_PREFIX %}
-
 <div class="main-content">
     <div class="main-content__item-article">
         <h1>{{ article.title }}</h1>
 
         {% if article.preview_image %}
-        <img src="{{MEDIA_PREFIX}}{{ article.preview_image }}">
+        <img src="{{ article.preview_image }}">
         {% endif %}
 
         {{ article.content | safe }}

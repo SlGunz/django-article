@@ -46,6 +46,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'api.apps.ApiConfig',
+
+    'media_server.apps.MediaServerConfig',
 ]
 
 # folder inside media folder
@@ -152,3 +154,6 @@ DATABASES['default'].update(db_from_env)
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Enable media server in django admin by default. 
+MEDIA_SERVER = bool(os.environ.get('DJANGO_MEDIA_SERVER', True))
